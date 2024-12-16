@@ -4,14 +4,22 @@ const todoInput = document.querySelector(".todo-input");
 const addBtn = document.querySelector(".add-btn");
 let currentItemToUpdate = null;
 
+document.addEventListener("DOMContentLoaded", getItemFromLocalStorage);
+
 todoForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const todoValue = todoInput.value.trim();
   (currentItemToUpdate ? updateItem : addItem)(todoValue);
+  addItemToLocalStorage(); // this function stores the list items in the local storage
   resetForm();
 });
 
 const addItem = (todoValue) => {
+  const listElement = createListItem(todoValue);
+  todoList.appendChild(listElement);
+};
+
+const createListItem = (todoValue) => {
   const listElement = document.createElement("li");
   listElement.className = `w-full flex justify-between items-center mt-3`;
 
@@ -23,8 +31,7 @@ const addItem = (todoValue) => {
     <button class="remove_btn border border-red-400 text-red-400 p-1 rounded">Remove</button>
   </div>`;
 
-  todoList.appendChild(listElement);
-
+  // addItemToLocalStorage(todoValue);
   //after adding list element to DOM for the edit todo item
   listElement
     .querySelector(`.edit_btn`) //getting the edit button fo the item
@@ -40,14 +47,34 @@ const addItem = (todoValue) => {
     .addEventListener("click", function () {
       listElement.remove();
     });
+
+  return listElement;
 };
 
 const updateItem = (todoValue) => {
   currentItemToUpdate.querySelector("span").textContent = todoValue;
+  addItemToLocalStorage();
 };
 
 function resetForm() {
   todoInput.value = "";
   addBtn.textContent = "Add";
   currentItemToUpdate = null;
+}
+
+function addItemToLocalStorage() {
+  const allItems = [];
+  document.querySelectorAll(".todo-list-items li span").forEach((item) => {
+    allItems.push(item.textContent);
+  });
+  localStorage.setItem("list-items", JSON.stringify(allItems));
+}
+
+function getItemFromLocalStorage() {
+  const getItems = localStorage.getItem("list-items");
+  console.log(JSON.parse(getItems));
+  JSON.parse(getItems).map((item) => {
+    const listItem = createListItem(item);
+    todoList.appendChild(listItem);
+  });
 }
