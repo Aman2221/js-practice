@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+:root {
+  --back-color: black;
+  --white-color: white;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  font-family: "DM Sans", sans-serif;
+}
+
+.questionSection {
+  margin-top: 50px;
+}
+
+ol {
+  list-style: decimal !important;
+  color: white;
+  font-size: 24px;
+}

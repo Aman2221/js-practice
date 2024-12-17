@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quize App</title>
+    <!-- Style sheets -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="flex flex-col items-center justify-center">
+    <main>
+      <h1 class="text-4xl text-white text-center mt-6">Quize App</h1>
+      <div class="form-div flex-col flex items-center justify-center">
+        <form class="quize-form">
+          <ol class="qustions-list"></ol>
+          <div class="flex justify-center my-6">
+            <button
+              type="submit"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <!-- Scripts  -->
+    <script
+      async
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    ></script>
+    <script src="main.js"></script>
+  </body>
+</html>
