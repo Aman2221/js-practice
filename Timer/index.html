@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer</title>
+    <!-- Style sheets -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="flex flex-col items-center justify-center">
+    <main>
+      <h1 class="text-4xl text-white text-center mt-6">Timer App</h1>
+      <form class="timer-form flex items-end justify-center gap-6 mt-10">
+        <div class="flex flex-col">
+          <label for="time" class="text-white mb-2 text-2xl"> Time </label>
+          <input
+            type="time"
+            class="border flex justify-center align-center p-2 text-xl outline-0 bg-black rounded text-white font-bold"
+            name="time"
+            id="time"
+            required
+          />
+        </div>
+        <div class="flex flex-col">
+          <label for="date" class="text-white mb-2 text-2xl"> Date </label>
+          <input
+            type="date"
+            class="border flex justify-center align-center p-2 text-xl outline-0 bg-black rounded text-white font-bold"
+            name="date"
+            id="date"
+            required
+            min=" "
+          />
+        </div>
+
+        <div>
+          <button
+            type="submit"
+            class="border border-white p-3 text-white rounded-2xl"
+          >
+            Start
+          </button>
+        </div>
+      </form>
+      <div class="timer flex gap-6 hidden mt-10">
+        <div class="seconds flex flex-col gap-2 items-center justify-center">
+          <span class="text-white text-base capitalize">seconds</span>
+          <div
+            class="secondsHolder border border-white h-16 w-16 rounded-lg bg-black font-semibold text-white flex items-center justify-center text-2xl"
+          ></div>
+        </div>
+        <div class="minutes flex flex-col gap-2 items-center justify-center">
+          <span class="text-white text-base capitalize">minutes</span>
+          <div
+            class="minutesHolder border border-white h-16 w-16 rounded-lg bg-black font-semibold text-white flex items-center justify-center text-2xl"
+          ></div>
+        </div>
+        <div class="hours flex flex-col gap-2 items-center justify-center">
+          <span class="text-white text-base capitalize">hours</span>
+          <div
+            class="hoursHolder border border-white h-16 w-16 rounded-lg bg-black font-semibold text-white flex items-center justify-center text-2xl"
+          ></div>
+        </div>
+        <div class="days flex flex-col gap-2 items-center justify-center">
+          <span class="text-white text-base capitalize">days</span>
+          <div
+            class="daysHolder border border-white h-16 w-16 rounded-lg bg-black font-semibold text-white flex items-center justify-center text-2xl"
+          ></div>
+        </div>
+      </div>
+    </main>
+    <!-- Scripts  -->
+    <script
+      async
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    ></script>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -45,7 +45,11 @@ const createListItem = (todoValue) => {
   listElement
     .querySelector(`.remove_btn`)
     .addEventListener("click", function () {
+      let itemToBeDeleted = listElement.querySelector("span").textContent;
+      const getItems = localStorage.getItem("list-items");
+      JSON.parse(getItems).filter((item) => item !== itemToBeDeleted);
       listElement.remove();
+      addItemToLocalStorage();
     });
 
   return listElement;
@@ -72,7 +76,6 @@ function addItemToLocalStorage() {
 
 function getItemFromLocalStorage() {
   const getItems = localStorage.getItem("list-items");
-  console.log(JSON.parse(getItems));
   JSON.parse(getItems).map((item) => {
     const listItem = createListItem(item);
     todoList.appendChild(listItem);
