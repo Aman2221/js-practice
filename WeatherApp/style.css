@@ -1,0 +1,13 @@
+:root {
+  --back-color: black;
+  --white-color: white;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+}
